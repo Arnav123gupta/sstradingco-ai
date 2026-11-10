@@ -48,3 +48,15 @@ No submission should happen automatically before approval.
 - TypeScript
 - Tailwind CSS
 - lucide-react
+
+
+## AI listing draft generation
+
+The dashboard includes a server-side AI draft endpoint at `/api/generate-listing`. It sends only the seller-entered product facts to Vercel AI Gateway and requests a cautious JSON draft (title, description, keywords, and missing information). The server refuses to invent specifications and never exposes the gateway key to the browser.
+
+Configure these environment variables in Vercel:
+
+- `AI_GATEWAY_API_KEY`: your Vercel AI Gateway API key
+- `AI_GATEWAY_MODEL`: a currently available model ID from the AI Gateway model catalog
+
+After adding both variables, redeploy. Do not paste secrets into GitHub or chat. AI output is a draft only and must be checked against the physical product and Flipkart's category requirements.
